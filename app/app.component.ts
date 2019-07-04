@@ -1,46 +1,35 @@
-import { Component, Inject } from '@angular/core';
-import { FirstService } from './services/first.service';
-import { SecondService } from './services/second.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  providers: [
-    {provide: 'FirstService', useClass: FirstService},
-    {provide: SecondService, useExisting: 'FirstService'},
-    {provide: 'value', useValue: 123},
-    {provide: 'factory', useFactory: ()=>{return 'Hello World'}},
-    SecondService
-  ]
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
   title = 'app';
+  count = 1;
+  
+  employees = [
+    {name: 'mike', jobRole: 'Angular Developer'},
+    {name: 'jim', jobRole: 'Java Developer'}
+  ];
 
-  constructor(@Inject('value') private val, @Inject('factory') private factory,
-              private secondService: SecondService) {}
+  totalVotes = 0;
 
-  ngOnInit() {
+  calculate(value) {
+    this.totalVotes+=value;
+  }
 
-    /*let provider = [
-      {provide: 'FirstService', useClass: FirstService},
-      {provide: SecondService, useExisting: 'FirstService'},
-      {provide: 'value', useValue: 123},
-      {provide: 'factory', useFactory: function(){return 'Hello World'}}      
-    ];*/
+  myFunction() {
+    this.title+=this.count++;
+  }
 
-    //let injector = ReflectiveInjector.resolveAndCreate(provider)
+  myFunction1(name: string) {
+    this.title = name;
+    this.title+=this.count++;
+  }
 
-    /*let object1 = injector.get('FirstService');
-    console.log(object1.getData());
-    let object2 = injector.get(SecondService);
-    console.log(object2.getData());
-    console.log(object1 === object2)*/
-    
-    console.log(this.secondService.getData());
-    console.log(this.val);
-    console.log(this.factory);
+  show() {
+    return this.title;
   }
 }
-
