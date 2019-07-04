@@ -1,0 +1,6 @@
+<h3>
+  <a [routerLink]="['search-items']" routerLinkActive="active">Search Items</a>
+  <a [routerLink]="[{outlets: {primary: 'item-list', secondary: 'heading'}}]" routerLinkActive="active">Item List</a>
+</h3>
+<router-outlet name="secondary"></router-outlet>
+<router-outlet></router-outlet>
