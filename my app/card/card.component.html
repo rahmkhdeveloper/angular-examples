@@ -1,0 +1,24 @@
+<!--<table [ngStyle]="{'backgroundColor': cardEmployee.jobRole === 'Angular Developer' ? 'lightPink' : 'lightGreen'}">
+  <tr [ngClass]="{'angularHead': cardEmployee.jobRole === 'Angular Developer', 'javaHead' : cardEmployee.jobRole === 'Java Developer'}">
+    <th>NAME</th>
+    <th>JOB ROLE</th>
+  </tr>
+  <tr [style.color]="'darkBlue'">
+    <td>{{cardEmployee.name}}</td>
+    <td>{{cardEmployee.jobRole}}</td>
+  </tr>
+  <button (click)="vote(cardEmployee.jobRole)">Vote</button>
+</table>-->
+
+<table [appHighlight]="cardEmployee.jobRole === 'Angular Developer' ? 'lightPink' : 'lightGreen'" 
+      [alternativeColor]="cardEmployee.jobRole === 'Angular Developer' ? 'red' : 'green'" [color]="'darkBlue'" #dirRef="customHighlight">
+  <tr appHighlight [headColor]="cardEmployee.jobRole === 'Angular Developer' ? 'angularHead' : 'javaHead'">
+    <th>NAME</th>
+    <th>JOB ROLE</th>
+  </tr>
+  <tr [style.color]="dirRef.color">
+    <td>{{cardEmployee.name}}</td>
+    <td>{{cardEmployee.jobRole}}</td>
+  </tr>
+  <button (click)="vote(cardEmployee.jobRole)">Vote</button>
+</table>

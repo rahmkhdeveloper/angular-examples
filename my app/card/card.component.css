@@ -1,0 +1,25 @@
+table {
+    margin: 10px;
+    padding: 20px;
+    font-size: 20px;
+    width: 300px;
+    height: 100px;
+}
+
+th, td{
+    text-align: center;
+}
+
+button{
+    width: 50px;
+    height: 20px;
+    font-size: 12px;
+}
+
+.angularHead {
+    color: brown;
+}
+
+.javaHead {
+    color: green;
+}

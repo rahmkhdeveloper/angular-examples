@@ -1,0 +1,43 @@
+<!--<h1>We are learning {{title}} {{2 + x}}</h1>-->
+
+<!--INPUT PROPERTY BINDING-->
+
+<!--<input type="text" value="{{title}}" #ref/><br><br>
+<input type="text" [value]="title" #ref1/><br><br>
+<input type="text" bind-value="title" #ref2/><br>
+<br><br>-->
+
+<!--OUTPUT EVENT BINDING-->
+
+<!--<button (click)="result = ref1.value">Click Me</button>
+<button (click)="show(ref1.value)">Click Me</button>
+<button on-click="show(ref1.value)">Click Me</button>
+<div>{{result}}</div>-->
+
+<!--TWO WAY DATA BINDING-->
+
+<!--<input type="text" value="{{title}}" (input)="title = $event.target.value"/><br><br>
+<input type="text" bind-value="title" on-input="title = $event.target.value"/><br><br>
+<input type="text" [ngModel]="title" (ngModelChanges)="title = $event.target.value"/><br><br>
+<input type="text" bind-ngModel="title" on-ngModelChanges="title = $event.target.value"/><br><br>
+<input type="text" bindon-ngModel="title"/><br><br>
+<input type="text" [(ngModel)]="title"/><br><br>
+<div>{{title}}</div>-->
+
+<!--COMPONENT INTERRACTION-->
+<div>
+    <ng-template ngFor let-employee [ngForOf]="employees" let-i = index>
+        <div>
+            {{i+1}}<app-card [cardEmployee]="employee" (customClickEvent)="count($event)"></app-card>    
+        </div>
+    </ng-template>
+    
+    <ng-template [ngIf]="true">
+        <div>
+            <span>Angular: {{voteForAngular}}</span><br>
+            <span>Java: {{voteForJava}}</span><br>
+            <span>Total votes: {{voteCount}}</span><br>
+        </div>
+    </ng-template>
+    
+</div>
