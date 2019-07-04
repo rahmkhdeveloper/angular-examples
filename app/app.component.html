@@ -1,0 +1,27 @@
+<!--<h1>{{show()}}</h1>-->
+
+<!--INPUT PROPERTY BINDING-->
+<!--<input type="text" value="{{title}}"/>
+<input type="text" [value]="title"/>
+<input type="text" bind-value="title" #in/>-->
+
+<!--OUTPUT EVENT BINDING-->
+<!--<button (click)="myFunction()">Click</button>
+<button on-click="myFunction()">Click</button>
+<button on-click="myFunction1(in.value)">Click</button>-->
+
+<!--TWO WAY DATA BINDING-->
+<!--<input type="text" [value]="title" (input)="title = $event.target.value"/>
+<input type="text" [ngModel]="title" (ngModelChange)="title = $event.target.value"/>
+<input type="text" [(ngModel)]="title"/>
+<h1>{{title}}</h1>-->
+
+<ng-template ngFor let-employee [ngForOf]="employees">
+    <div>
+        <app-card [employee]="employee" (vote)="calculate($event)"></app-card><br>
+    </div>
+</ng-template>
+<br><br><br>
+<ng-container [ngIf]="true" [ngIfThenElse]="showVotes" [ngIfElse]="noVotes"></ng-container>
+<ng-template #showVotes>Total Votes: {{totalVotes}}</ng-template>
+<ng-template #noVotes>No Votes</ng-template>
